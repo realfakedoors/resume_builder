@@ -10,9 +10,9 @@ class Form extends Component {
     super();
 
     this.state = {
-      name: "Horatio Blaze",
-      email: "ratio420@blazeup.org",
-      phone: "(123)456-7890",
+      name: "",
+      email: "",
+      phone: "",
       jobs: [],
       schools: [],
     };
@@ -39,11 +39,11 @@ class Form extends Component {
     const newIndex = this.state.jobs.length;
     const newJob = {
       key: newIndex,
-      company: "Truckville Ent",
-      title: "Smoker",
-      startDate: "4/2015",
-      endDate: "Present",
-      responsibilities: "Rippin' and Runnin'",
+      company: "",
+      title: "",
+      startDate: "",
+      endDate: "",
+      responsibilities: "",
     };
 
     this.setState((prevState) => ({
@@ -99,11 +99,11 @@ class Form extends Component {
     const newIndex = this.state.schools.length;
     const newSchool = {
       key: newIndex,
-      institution: "Truck University",
-      location: "Iowa, FL",
-      degree: "Associate's",
-      focus: "Jumps",
-      dateFinished: "2012",
+      institution: "",
+      location: "",
+      degree: "",
+      focus: "",
+      dateFinished: "",
     };
 
     this.setState((prevState) => ({
