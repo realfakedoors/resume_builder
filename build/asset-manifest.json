@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/realfakedoors/resume_builder/static/css/main.c2f03efa.chunk.css",
+    "main.js": "/realfakedoors/resume_builder/static/js/main.0eee3715.chunk.js",
+    "main.js.map": "/realfakedoors/resume_builder/static/js/main.0eee3715.chunk.js.map",
+    "runtime-main.js": "/realfakedoors/resume_builder/static/js/runtime-main.93a2f934.js",
+    "runtime-main.js.map": "/realfakedoors/resume_builder/static/js/runtime-main.93a2f934.js.map",
+    "static/js/2.93672cce.chunk.js": "/realfakedoors/resume_builder/static/js/2.93672cce.chunk.js",
+    "static/js/2.93672cce.chunk.js.map": "/realfakedoors/resume_builder/static/js/2.93672cce.chunk.js.map",
+    "index.html": "/realfakedoors/resume_builder/index.html",
+    "precache-manifest.661982becba18a521859eb482bcc98e4.js": "/realfakedoors/resume_builder/precache-manifest.661982becba18a521859eb482bcc98e4.js",
+    "service-worker.js": "/realfakedoors/resume_builder/service-worker.js",
+    "static/css/main.c2f03efa.chunk.css.map": "/realfakedoors/resume_builder/static/css/main.c2f03efa.chunk.css.map",
+    "static/js/2.93672cce.chunk.js.LICENSE.txt": "/realfakedoors/resume_builder/static/js/2.93672cce.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.93a2f934.js",
+    "static/js/2.93672cce.chunk.js",
+    "static/css/main.c2f03efa.chunk.css",
+    "static/js/main.0eee3715.chunk.js"
+  ]
+}
