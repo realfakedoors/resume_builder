@@ -8,3 +8,6 @@ Meant to demonstrate an understanding of:
 
 part of The Odin Project:  
 https://www.theodinproject.com/lessons/cv-application  
+
+live on GH Pages:
+https://realfakedoors.github.io/resume_builder/
