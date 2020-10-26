@@ -8,28 +8,28 @@ import Field from "./Field";
 class Form extends Component {
   constructor() {
     super();
-    
+
     this.state = {
-      name: "",
-      email: "",
-      phone: "",
+      name: "Horatio Blaze",
+      email: "ratio420@blazeup.org",
+      phone: "(123)456-7890",
       jobs: [],
       schools: [],
-    }
-    
+    };
+
     this.createJob = this.createJob.bind(this);
     this.addJob = this.addJob.bind(this);
     this.removeJob = this.removeJob.bind(this);
     this.displayAllJobs = this.displayAllJobs.bind(this);
     this.generateJobFields = this.generateJobFields.bind(this);
-    
+
     this.createSchool = this.createSchool.bind(this);
     this.addSchool = this.addSchool.bind(this);
     this.removeSchool = this.removeSchool.bind(this);
     this.displayAllSchools = this.displayAllSchools.bind(this);
     this.generateSchoolFields = this.generateSchoolFields.bind(this);
   }
-  
+
   createJob(job) {
     job.preventDefault();
     this.addJob();
@@ -39,20 +39,20 @@ class Form extends Component {
     const newIndex = this.state.jobs.length;
     const newJob = {
       key: newIndex,
-      company: "",
-      title: "",
-      startDate: "",
-      endDate: "",
-      responsibilities: "",
+      company: "Truckville Ent",
+      title: "Smoker",
+      startDate: "4/2015",
+      endDate: "Present",
+      responsibilities: "Rippin' and Runnin'",
     };
 
     this.setState((prevState) => ({
       jobs: prevState.jobs.concat(newJob),
     }));
   }
-  
+
   removeJob(key) {}
-  
+
   displayAllJobs() {
     const jobCount = this.state.jobs.length;
     let allJobs = [];
@@ -62,6 +62,7 @@ class Form extends Component {
         <div className="job-display">
           <p id={"company-" + i}></p>
           <p id={"title-" + i}></p>
+          <br />
           <p id={"startDate-" + i}></p>
           <p id={"endDate-" + i}></p>
           <p id={"responsibilities-" + i}></p>
@@ -74,7 +75,7 @@ class Form extends Component {
     const targetDiv = document.getElementById("experience");
     ReactDOM.render(allJobs, targetDiv);
   }
-  
+
   generateJobFields(job) {
     return (
       <Job
@@ -82,7 +83,7 @@ class Form extends Component {
         jobId={job.key}
         company={job.company}
         title={job.title}
-        startDate={job.startDate}
+        startDate={job.startDate + " -"}
         endDate={job.endDate}
         responsibilities={job.responsibilities}
       />
@@ -93,16 +94,16 @@ class Form extends Component {
     school.preventDefault();
     this.addSchool();
   }
-  
+
   addSchool() {
     const newIndex = this.state.schools.length;
     const newSchool = {
       key: newIndex,
-      institution: "",
-      location: "",
-      degree: "",
-      focus: "",
-      dateFinished: "",
+      institution: "Truck University",
+      location: "Iowa, FL",
+      degree: "Associate's",
+      focus: "Jumps",
+      dateFinished: "2012",
     };
 
     this.setState((prevState) => ({
@@ -111,7 +112,7 @@ class Form extends Component {
   }
 
   removeSchool(key) {}
-  
+
   displayAllSchools() {
     const schoolCount = this.state.schools.length;
     let allSchools = [];
@@ -133,7 +134,7 @@ class Form extends Component {
     const targetDiv = document.getElementById("education");
     ReactDOM.render(allSchools, targetDiv);
   }
-  
+
   generateSchoolFields(school) {
     return (
       <School
@@ -147,7 +148,7 @@ class Form extends Component {
       />
     );
   }
-  
+
   componentDidMount() {
     this.addJob();
     this.addSchool();
@@ -157,14 +158,14 @@ class Form extends Component {
     this.displayAllJobs();
     this.displayAllSchools();
   }
-  
+
   render() {
     let allJobs = this.state.jobs;
     let jobFields = allJobs.map(this.generateJobFields);
-    
+
     let allSchools = this.state.schools;
     let schoolFields = allSchools.map(this.generateSchoolFields);
-      
+
     return (
       <div className="form">
         <div className="general-info">

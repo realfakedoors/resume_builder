@@ -1,6 +1,6 @@
-import React from 'react';
-import Display from './Display';
-import Form from './Form';
+import React from "react";
+import Display from "./Display";
+import Form from "./Form";
 
 function App() {
   return (

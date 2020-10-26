@@ -11,15 +11,10 @@ class Display extends Component {
         </section>
         <hr />
         <h4 className="section-header">Experience</h4>
-        <section id="experience">
-          {/* display all Jobs in Experience's state. */}
-          sssss
-        </section>
+        <section id="experience">{/* display all Jobs. */}</section>
         <hr />
         <h4 className="section-header">Education</h4>
-        <section id="education">
-          {/* display all Schools in Education's state. */}
-        </section>
+        <section id="education">{/* display all Schools. */}</section>
       </div>
     );
   }
