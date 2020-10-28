@@ -1,42 +1,26 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 
 import Job from "./Job";
 import School from "./School";
 import Field from "./Field";
 
-class Form extends Component {
-  constructor() {
-    super();
+const Form = () => {  
+  const [jobs, setJobs] = useState([]);
+  const [schools, setSchools] = useState([]);
+  
+  useEffect(() => {    
+    displayAllJobs();
+    displayAllSchools();
+  });
 
-    this.state = {
-      name: "",
-      email: "",
-      phone: "",
-      jobs: [],
-      schools: [],
-    };
-
-    this.createJob = this.createJob.bind(this);
-    this.addJob = this.addJob.bind(this);
-    this.removeJob = this.removeJob.bind(this);
-    this.displayAllJobs = this.displayAllJobs.bind(this);
-    this.generateJobFields = this.generateJobFields.bind(this);
-
-    this.createSchool = this.createSchool.bind(this);
-    this.addSchool = this.addSchool.bind(this);
-    this.removeSchool = this.removeSchool.bind(this);
-    this.displayAllSchools = this.displayAllSchools.bind(this);
-    this.generateSchoolFields = this.generateSchoolFields.bind(this);
-  }
-
-  createJob(job) {
+  function createJob(job) {
     job.preventDefault();
-    this.addJob();
+    addJob();
   }
 
-  addJob() {
-    const newIndex = this.state.jobs.length;
+  function addJob() {
+    const newIndex = jobs.length;
     const newJob = {
       key: newIndex,
       company: "",
@@ -46,15 +30,11 @@ class Form extends Component {
       responsibilities: "",
     };
 
-    this.setState((prevState) => ({
-      jobs: prevState.jobs.concat(newJob),
-    }));
+    setJobs(jobs.concat(newJob));
   }
 
-  removeJob(key) {}
-
-  displayAllJobs() {
-    const jobCount = this.state.jobs.length;
+  function displayAllJobs() {
+    const jobCount = jobs.length;
     let allJobs = [];
 
     for (let i = 0; i < jobCount; i++) {
@@ -76,7 +56,7 @@ class Form extends Component {
     ReactDOM.render(allJobs, targetDiv);
   }
 
-  generateJobFields(job) {
+  function generateJobFields(job) {
     return (
       <Job
         key={job.key}
@@ -90,13 +70,13 @@ class Form extends Component {
     );
   }
 
-  createSchool(school) {
+  function createSchool(school) {
     school.preventDefault();
-    this.addSchool();
+    addSchool();
   }
 
-  addSchool() {
-    const newIndex = this.state.schools.length;
+  function addSchool() {
+    const newIndex = schools.length;
     const newSchool = {
       key: newIndex,
       institution: "",
@@ -106,15 +86,11 @@ class Form extends Component {
       dateFinished: "",
     };
 
-    this.setState((prevState) => ({
-      schools: prevState.schools.concat(newSchool),
-    }));
+    setSchools(schools.concat(newSchool));
   }
 
-  removeSchool(key) {}
-
-  displayAllSchools() {
-    const schoolCount = this.state.schools.length;
+  function displayAllSchools() {
+    const schoolCount = schools.length;
     let allSchools = [];
 
     for (let i = 0; i < schoolCount; i++) {
@@ -135,7 +111,7 @@ class Form extends Component {
     ReactDOM.render(allSchools, targetDiv);
   }
 
-  generateSchoolFields(school) {
+  function generateSchoolFields(school) {
     return (
       <School
         key={school.key}
@@ -149,45 +125,27 @@ class Form extends Component {
     );
   }
 
-  componentDidMount() {
-    this.addJob();
-    this.addSchool();
-  }
-
-  componentDidUpdate() {
-    this.displayAllJobs();
-    this.displayAllSchools();
-  }
-
-  render() {
-    let allJobs = this.state.jobs;
-    let jobFields = allJobs.map(this.generateJobFields);
-
-    let allSchools = this.state.schools;
-    let schoolFields = allSchools.map(this.generateSchoolFields);
-
-    return (
-      <div className="form">
-        <div className="general-info">
-          <Field name="name" value={this.state.name} />
-          <Field name="email" value={this.state.email} />
-          <Field name="phone" value={this.state.phone} />
-        </div>
-        <div className="experience-form">
-          <form onSubmit={this.createJob}>
-            {jobFields}
-            <button type="submit">Add Another Job</button>
-          </form>
-        </div>
-        <div className="education-form">
-          <form onSubmit={this.createSchool}>
-            {schoolFields}
-            <button type="submit">Add Another School</button>
-          </form>
-        </div>
+  return (
+    <div className="form">
+      <div className="general-info">
+        <Field name="name" />
+        <Field name="email" />
+        <Field name="phone" />
       </div>
-    );
-  }
+      <div className="experience-form">
+        <form onSubmit={createJob}>
+          {jobs.map(generateJobFields)}
+          <button type="submit">Add A Job</button>
+        </form>
+      </div>
+      <div className="education-form">
+        <form onSubmit={createSchool}>
+          {schools.map(generateSchoolFields)}
+          <button type="submit">Add A School</button>
+        </form>
+      </div>
+    </div>
+  );
 }
 
 export default Form;
